@@ -31,7 +31,7 @@ describe('Authorization tests', () => {
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
     })
-    it('Response body returns correct message', () => {
+    it('Response body returns an error message', () => {
       expect(res.body.message).to.eq('Auth failed')
     })
   })
@@ -45,7 +45,7 @@ describe('Authorization tests', () => {
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
     })
-    it('Response body returns correct message', () => {
+    it('Response body returns an error message', () => {
       expect(res.body.message).to.eq('Auth failed')
     })
   })
@@ -59,7 +59,7 @@ describe('Authorization tests', () => {
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
     })
-    it('Response body returns correct message', () => {
+    it('Response body returns an error message', () => {
       expect(res.body.message).to.eq('Auth failed')
     })
   })
@@ -73,7 +73,7 @@ describe('Authorization tests', () => {
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
     })
-    it('Response body returns correct message', () => {
+    it('Response body returns an error message', () => {
       expect(res.body.message).to.eq('Auth failed')
     })
   })
@@ -87,7 +87,7 @@ describe('Authorization tests', () => {
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
     })
-    it('Response body returns correct message', () => {
+    it('Response body returns an error message', () => {
       expect(res.body.message).to.eq('Auth failed')
     })
   })
