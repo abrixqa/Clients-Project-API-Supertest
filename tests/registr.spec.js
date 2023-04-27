@@ -7,7 +7,6 @@ describe.only('Registration', () => {
   describe('Create registration', () => {
     let res
     let newEmail = 'user_' + Date.now() + '@mail.com'
-    console.log(newEmail)
     before(async () => {
       res = await request(process.env.BASE_URL)
         .post('/v5/user')
