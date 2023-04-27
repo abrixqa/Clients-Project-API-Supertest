@@ -1,14 +1,10 @@
 import { expect } from 'chai'
-import request from 'supertest'
-import 'dotenv/config'
-
+import { login } from '../helpers/general'
 describe('Authorization tests', () => {
   describe('Authorization with valid data', () => {
     let res
     before(async () => {
-      res = await request(process.env.BASE_URL)
-        .post('/v5/user/login')
-        .send({ email: process.env.EMAIL, password: process.env.PASSWORD })
+      res = await login(process.env.EMAIL, process.env.PASSWORD)
     })
 
     it('Response status code is 200', () => {
@@ -24,9 +20,7 @@ describe('Authorization tests', () => {
   describe('Authorization with invalid email', () => {
     let res
     before(async () => {
-      res = await request(process.env.BASE_URL)
-        .post('/v5/user/login')
-        .send({ email: 'your@email.com', password: process.env.PASSWORD })
+      res = await login('5555@mail.com', process.env.PASSWORD)
     })
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
@@ -38,9 +32,7 @@ describe('Authorization tests', () => {
   describe('Authorization with invalid password', () => {
     let res
     before(async () => {
-      res = await request(process.env.BASE_URL)
-        .post('/v5/user/login')
-        .send({ email: process.env.EMAIL, password: 'qwerty' })
+      res = await login(process.env.EMAIL, 'qwerty')
     })
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
@@ -52,9 +44,7 @@ describe('Authorization tests', () => {
   describe('Authorization without email', () => {
     let res
     before(async () => {
-      res = await request(process.env.BASE_URL)
-        .post('/v5/user/login')
-        .send({ email: '', password: process.env.PASSWORD })
+      res = await login('', process.env.PASSWORD)
     })
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
@@ -66,9 +56,7 @@ describe('Authorization tests', () => {
   describe('Authorization without password', () => {
     let res
     before(async () => {
-      res = await request(process.env.BASE_URL)
-        .post('/v5/user/login')
-        .send({ email: 'your@email.com', password: '' })
+      res = await login(process.env.EMAIL, '')
     })
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
@@ -80,9 +68,7 @@ describe('Authorization tests', () => {
   describe('Authorization without any credentials', () => {
     let res
     before(async () => {
-      res = await request(process.env.BASE_URL)
-        .post('/v5/user/login')
-        .send({ email: '', password: '' })
+      res = await login('', '')
     })
     it('Response body returns code is 400', () => {
       expect(res.statusCode).to.eq(400)
