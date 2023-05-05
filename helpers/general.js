@@ -33,3 +33,13 @@ export const reg = email => {
     })
 }
 */
+// function reg(email) {
+//   return request(process.env.BASE_URL)
+//       .post('/v5/user')
+//       .send({
+//         firstName: chance.first(),
+//         lastName: chance.last(),
+//         email,
+//         password: process.env.PASSWORD,
+//       })
+// }
