@@ -19,7 +19,14 @@ function emailSearch(email) {
   return request(process.env.BASE_URL).post('/email/search').send({ email })
 }
 
-export { login, reg, randomEmail, emailSearch }
+function createClient(name, phone, email) {
+  return request(process.env.BASE_URL)
+    .post('/v5/client')
+    .set('Authorization', process.env.TOKEN)
+    .send({ name, phone, email })
+}
+
+export { login, reg, randomEmail, emailSearch, createClient }
 /*
 const Chance = require('chance')
 const chanceObj = new Chance()
