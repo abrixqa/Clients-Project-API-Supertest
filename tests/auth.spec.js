@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { login } from '../helpers/general'
+import { login } from '../helpers/general-helper'
 describe('Authorization tests', () => {
   describe('Authorization with valid data', () => {
     let res

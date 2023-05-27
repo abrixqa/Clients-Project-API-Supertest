@@ -1,5 +1,5 @@
 import request from 'supertest'
-import { login, reg, emailSearch } from '../helpers/general'
+import { login, reg, emailSearch } from '../helpers/general-helper'
 import { expect } from 'chai'
 const chance = require('chance').Chance()
 describe('Email verification', () => {
