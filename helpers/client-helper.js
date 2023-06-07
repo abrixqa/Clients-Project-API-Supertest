@@ -5,7 +5,7 @@ function createClient() {
   return request(process.env.BASE_URL)
     .post('/v5/client')
     .set('Authorization', process.env.TOKEN)
-    .send({ name: chance.name(), phone: chance.phone })
+    .send({ name: 'Client_' + Date.now(), phone: chance.phone })
 }
 
 function getClientByName(clientName) {
@@ -15,10 +15,11 @@ function getClientByName(clientName) {
     .set('Authorization', process.env.TOKEN)
 }
 
-function updateClient(clientName, clientPhone, clientId) {
-  return process.env.BASE_URL.patch(`v5/client/${clientId}`) // equivalent to ( + clientId)
-    .send({ name: clientName, phone: clientPhone })
-    .set('Authorization', process.env.Token)
+function updateClient(clientId) {
+  return request(process.env.BASE_URL)
+    .patch(`/v5/client/${clientId}`) // equivalent to ( + clientId)
+    .set('Authorization', process.env.TOKEN)
+    .send({ name: 'updatedClient', phone: 'updatedPhone' })
 }
 
 function getClientById(clientId) {
