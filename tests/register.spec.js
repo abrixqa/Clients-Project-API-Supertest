@@ -1,5 +1,5 @@
 import { expect } from 'chai'
-import { reg, randomEmail, login } from '../helpers/general'
+import { reg, randomEmail, login } from '../helpers/general-helper'
 import request from 'supertest'
 
 const chance = require('chance').Chance()
