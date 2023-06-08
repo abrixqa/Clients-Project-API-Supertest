@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --config .mocharc.js"
+    "test": "mocha --config .mocharc.js --reporter mochawesome",
+    "testonly": "mocha --config .mocharc.js"
   },
   "keywords": [],
   "author": "Soleil B",
@@ -16,6 +17,7 @@
     "chai": "^4.3.7",
     "dotenv": "^16.0.3",
     "mocha": "^10.2.0",
+    "mochawesome": "^7.1.3",
     "prettier": "^2.8.7",
     "supertest": "^6.3.3"
   },
